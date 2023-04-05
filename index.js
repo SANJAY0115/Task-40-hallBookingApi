@@ -1,8 +1,7 @@
 const express = require("express");
-const app = express();
-app.use(express.json());
-// import dotenv from "dotenv"
-// dotenv.config()
+const hall = express();
+const PORT = 4000;
+hall.use(express.json());
 
 // already book rooms and customers in Hall
 const myHall = [
@@ -48,7 +47,7 @@ const myHall = [
 ];
 
 // list all rooms and customers - api (get) - https://nodejs-hall-booking-api-task.vercel.app/all
-app.get("/all", (req, res) => {
+hall.get("/all", (req, res) => {
   try {
     res.json(myHall);
   } catch (error) {
@@ -58,7 +57,7 @@ app.get("/all", (req, res) => {
 });
 
 // 1. creating a room - api (post) - https://nodejs-hall-booking-api-task.vercel.app/createRoom
-app.post("/createRoom", (req, res) => {
+hall.post("/createRoom", (req, res) => {
   try {
     for (let i = 0; i < myHall.length; i++) {
       if (myHall[i].roomId == req.body.roomId) {
@@ -82,7 +81,7 @@ app.post("/createRoom", (req, res) => {
 })
 
 //2. booking a room - api (post) - https://nodejs-hall-booking-api-task.vercel.app/bookRoom
-app.post("/bookRoom", (req, res) => {
+hall.post("/bookRoom", (req, res) => {
   try {
     for (let i = 0; i < myHall.length; i++) {
       if (myHall[i].roomId == req.body.roomId) {
@@ -109,7 +108,7 @@ app.post("/bookRoom", (req, res) => {
 });
 
 // 3.list all rooms with booked data - api (get) - https://nodejs-hall-booking-api-task.vercel.app/listAllRooms
-app.get("/listAllRooms", (req, res) => {
+hall.get("/listAllRooms", (req, res) => {
   try {
     let listAllRooms = []
     for (let i = 0; i < myHall.length; i++) {
@@ -128,7 +127,7 @@ app.get("/listAllRooms", (req, res) => {
 });
 
 //4. list all customers with booked data - api (get) - https://nodejs-hall-booking-api-task.vercel.app/listAllCustomers
-app.get("/listAllCustomers", (req, res) => {
+hall.get("/listAllCustomers", (req, res) => {
   try {
     let listAllCustomers = []
     for (let i = 0; i < myHall.length; i++) {
@@ -149,7 +148,7 @@ app.get("/listAllCustomers", (req, res) => {
 });
 
 // Check server or default api (get)- https://nodejs-hall-booking-api-task.vercel.app
-app.get("/", (req, res) => {
+hall.get("/", (req, res) => {
   try {
     res.send(`Server Active`)
   } catch (error) {
@@ -157,5 +156,5 @@ app.get("/", (req, res) => {
   }
 });
 
-app.listen(3000,()=>console.log("server started"));
+hall.listen(PORT,()=>console.log(`The server started in ${PORT}⭐⭐`));
 
