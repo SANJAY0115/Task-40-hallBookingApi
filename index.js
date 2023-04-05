@@ -46,7 +46,7 @@ const myHall = [
   }
 ];
 
-// list all rooms and customers - api (get) - https://nodejs-hall-booking-api-task.vercel.app/all
+// list all rooms and customers - api (get) - https://task-40-hall-booking-api.vercel.app/all
 hall.get("/all", (req, res) => {
   try {
     res.json(myHall);
@@ -56,7 +56,7 @@ hall.get("/all", (req, res) => {
 
 });
 
-// 1. creating a room - api (post) - https://nodejs-hall-booking-api-task.vercel.app/createRoom
+// 1. creating a room - api (post) - https://task-40-hall-booking-api.vercel.app/createRoom
 hall.post("/createRoom", (req, res) => {
   try {
     for (let i = 0; i < myHall.length; i++) {
@@ -80,7 +80,7 @@ hall.post("/createRoom", (req, res) => {
 
 })
 
-//2. booking a room - api (post) - https://nodejs-hall-booking-api-task.vercel.app/bookRoom
+//2. booking a room - api (post) - https://task-40-hall-booking-api.vercel.app/bookRoom
 hall.post("/bookRoom", (req, res) => {
   try {
     for (let i = 0; i < myHall.length; i++) {
@@ -107,7 +107,7 @@ hall.post("/bookRoom", (req, res) => {
   }
 });
 
-// 3.list all rooms with booked data - api (get) - https://nodejs-hall-booking-api-task.vercel.app/listAllRooms
+// 3.list all rooms with booked data - api (get) - https://task-40-hall-booking-api.vercel.app/listAllRooms
 hall.get("/listAllRooms", (req, res) => {
   try {
     let listAllRooms = []
@@ -126,7 +126,7 @@ hall.get("/listAllRooms", (req, res) => {
   }
 });
 
-//4. list all customers with booked data - api (get) - https://nodejs-hall-booking-api-task.vercel.app/listAllCustomers
+//4. list all customers with booked data - api (get) - https://task-40-hall-booking-api.vercel.app/listAllCustomers
 hall.get("/listAllCustomers", (req, res) => {
   try {
     let listAllCustomers = []
@@ -147,7 +147,7 @@ hall.get("/listAllCustomers", (req, res) => {
 
 });
 
-// Check server or default api (get)- https://nodejs-hall-booking-api-task.vercel.app
+// Check server or default api (get)- https://task-40-hall-booking-api.vercel.app/
 hall.get("/", (req, res) => {
   try {
     res.send(`Server Active`)
